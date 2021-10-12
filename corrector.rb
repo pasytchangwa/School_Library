@@ -1,7 +1,6 @@
 class Corrector
   def initialize(name)
     @name = name
-
   end
 
   def correct_name
