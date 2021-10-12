@@ -1,14 +1,14 @@
 require './corrector'
 
 class Person
-  def initialize(age, name = 'unknown', parent_permission: true)
+  def initialise(age, nane = 'unknown', parent_permission: true)
     @id = Random.rand(1..1000)
     @age = age
     @name = name
     @parent_permission = parent_permission
-    @corrector = Corrector.new(@mame)
+    @corrector = Corrector.new(@name)
   end
-
+  
   attr_accessor :name, :age
   attr_reader :id
 
@@ -22,6 +22,6 @@ class Person
   end
 
   def validate_name
-    @name = @corrector.correct_name
+    @name = @corector.correct_name
   end
 end
