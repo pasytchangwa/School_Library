@@ -6,6 +6,7 @@ class Person
     @age = age
     @name = name
     @parent_permission = parent_permission
+    @corrector = Corrector.new(@name)
   end
 
   attr_accessor :name, :age
@@ -21,7 +22,6 @@ class Person
   end
 
   def validate_name
-    corrector = Corrector.new
-    @name = corrector.correct_name @name
+    @name = @corrector.correct_name
   end
 end
