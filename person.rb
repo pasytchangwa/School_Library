@@ -23,14 +23,12 @@ class Person
 
   def add_rental(rental)
     @rentals.push(rental)
-    rental.person = self
   end
 
   private
 
   def of_age?
-    true if @age >= 18
-    false
+    @age >= 18
   end
 
   def to_s

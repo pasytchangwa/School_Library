@@ -1,4 +1,4 @@
-require_relative './person'
+require_relative 'person'
 
 class Student < Person
   attr_reader :classroom
@@ -18,6 +18,6 @@ class Student < Person
   end
 
   def to_s
-    "[student] #{super}"
+    "[Student] #{super}"
   end
 end
