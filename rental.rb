@@ -5,9 +5,13 @@ class Rental
     @date = date
 
     @person = person
-    person.rentals << self unless person.rentals.include?(self)
+    person.rentals << self
 
     @book = book
-    book.rentals << self unless book.rentals.include?(self)
+    book.rentals << self
+  end
+
+  def to_s
+    "Date: #{@date}, Book: \"#{book.title}\" by #{book.author}"
   end
 end
