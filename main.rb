@@ -1,3 +1,4 @@
+#!/usr/bin/env ruby
 require './person'
 require './student'
 require './rental'
@@ -7,7 +8,6 @@ require './classroom'
 
 class App
   def initialize
-    @classroom = Classroom.new('Ruby class')
     @books = []
     @rentals = []
     @people = []
@@ -44,7 +44,7 @@ class App
     when '5'
       create_rental
     when '6'
-      list_rentals_by_person_id
+      list_rentals
     else
       puts 'That is not a valid option'
     end
@@ -146,13 +146,13 @@ class App
     print 'Date: '
     date = gets.chomp
 
-    rental = Rental.new(date, @books[book_i], @people[person_i])
+    rental = Rental.new(date, @people[person_i], @books[book_i])
     @rentals.push(rental)
 
     puts 'Rental created successfully'
   end
 
-  def list_rentals_by_person_id
+  def list_rentals
     print 'ID of person: '
     id = gets.chomp
 
