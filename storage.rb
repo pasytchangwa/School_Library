@@ -1,7 +1,7 @@
 require 'json'
 
 class Storage
-  def store(classroom)
+  def load(classroom)
     books = parse_books
     rentals = parse_rentals(people, books)
     people = parse_people(classroom)
@@ -74,4 +74,7 @@ class Storage
     teacher.id = id
     teacher
   end
+
+  def store
+    
 end

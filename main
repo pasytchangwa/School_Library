@@ -1,5 +1,6 @@
 #!/usr/bin/env ruby
 require_relative 'roles'
+require_relative 'storage'
 
 class App
   include Roles
