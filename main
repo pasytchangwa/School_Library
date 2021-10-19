@@ -7,9 +7,12 @@ class App
 
   def initialize
     @classroom = Classroom.new('Ruby class')
-    @books = []
-    @rentals = []
-    @people = []
+    storage = Storage.new
+    data = storage.load(@classroom)
+
+    @people = data['people']
+    @books = data['books']
+    @rentals = data['rentals']
   end
 
   def run
@@ -21,6 +24,9 @@ class App
       option = gets.chomp
 
       break if option == '7'
+
+      storage = Storage.new
+      storage.store(people: @people, rentals: @rentals, books: @books)
 
       handle_action option
     end
