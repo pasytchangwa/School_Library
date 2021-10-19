@@ -16,7 +16,7 @@ class Storage
   def parse_books
     file = 'books_json'
 
-    if File.exists? file
+    if File.exist? file
       JSON.parse(File.read(file), create_additions: true)
     else
       []
@@ -29,7 +29,7 @@ class Storage
     if File.exist? file
       JSON.parse(File.read(file)).map do |person_json|
         if person_json['json_class'] == 'student'
-           creating_student(person_json, classroom)
+          creating_student(person_json, classroom)
         else
           creating_teacher person_json
         end
@@ -41,9 +41,9 @@ class Storage
 
   def parse_rentals(people, books)
     file = 'rentals_json'
-    
-    if File.exists? file
-      JSON.parse(File.read(file)).map do |rentals_json|
+
+    if File.exist? file
+      JSON.parse(File.read(file)).map do |_rentals_json|
         book = books.find { |current_book| current_book.title == rental_json['book_title'] }
         person = people.find { |current_person| current_person.id == rental_json['person_id'].to_i }
 
@@ -60,7 +60,7 @@ class Storage
     age = person_json['age']
     parent_permission = person_json['parent_permission']
 
-    student = Student.new(name: name, age:age, parent_permission: parent_permission, classroom: classroom)
+    student = Student.new(name: name, age: age, parent_permission: parent_permission, classroom: classroom)
     student.id = id
     student
   end
@@ -70,9 +70,8 @@ class Storage
     name = person_json['name']
     age = person_json['age']
     specialization = person_json['specialization']
-    teacher = Teacher.new(name: name, age:age, specialization: specialization)
+    teacher = Teacher.new(name: name, age: age, specialization: specialization)
     teacher.id = id
     teacher
   end
-
-  
+end
