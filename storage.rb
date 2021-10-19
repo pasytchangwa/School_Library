@@ -76,13 +76,19 @@ class Storage
   end
 
   def store(people:, rentals:, books:)
-    File.open('people.json', 'w') { |f|
-      f.write JSON.generate(people) 
-    } unless people.empty?
-    File.open('books.json', 'w') { |f| 
-      f.write JSON.generate(books) 
-    } unless books.empty?File.open('rentals.json', 'w') { |f| 
-      f.write JSON.generate(rentals) 
-    } unless rentals.empty?  
+    unless people.empty?
+      File.open('people.json', 'w') do |f|
+        f.write JSON.generate(people)
+      end
+    end
+    if !rentals.empty? && !(books.empty? File.open('rentals.json', 'w') { |f|
+                                           f.write JSON.generate(rentals)
+                                         }) && !(books.empty? File.open('rentals.json', 'w') { |f|
+                                                                f.write JSON.generate(rentals)
+                                                              })
+      File.open('books.json', 'w') do |f|
+        f.write JSON.generate(books)
+      end
+    end
   end
 end
