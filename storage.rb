@@ -6,7 +6,7 @@ class Storage
     people = parse_people(classroom)
     rentals = parse_rentals(people, books)
 
-    { 
+    {
       'people' => people,
       'books' => books,
       'rentals' => rentals
