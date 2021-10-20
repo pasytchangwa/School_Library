@@ -1,0 +1,8 @@
+require_relative '../person'
+require_relative '../teacher'
+require_relative '../student'
+require_relative '../corrector'
+require_relative '../rental'
+require_relative '../classroom'
+require_relative '../book'
+require_relative '../json'
