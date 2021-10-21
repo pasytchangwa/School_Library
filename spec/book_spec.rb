@@ -1,4 +1,4 @@
-require_relative 'import_spec'
+require_relative '../book'
 
 describe Book do
   before :each do
@@ -6,14 +6,8 @@ describe Book do
   end
 
   describe '#new' do
-    it 'takes two parameters and returns a book object' do
-      expect(@book).to be_an_instance_of Book
-    end
-  end
-
-  describe '#rentals' do
-    it 'returns a has-many Rental relationship' do
-      expect(@book).do have_attributes('rentals' => [])
+    it 'takes two parameters and returns a Book object' do
+      expect(@book).to be_an_instance_of(Book)
     end
   end
 
@@ -28,4 +22,10 @@ describe Book do
       expect(@book.title).to eq 'Game of thrones'
     end
   end
+
+  # describe '#to_s' do
+  #   it 'returns correct value from to_s method' do
+  #     expect(@book.to_s).to eql('Title: Game of thrones, Author: Shake Spear'
+  #   end
+  # end
 end
